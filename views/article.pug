@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  .columns
+    for item in article
+      .card
+        .card-image
+          figure.image.is-4by3
+            img(src=item.urlToImage)
+        .card-content
+          a.media(href=item.url)
+            p.title.is-4=item.title
+          .content=item.description
+            br
+            br
+            i
+              | Date:
+              |
+              time(datetime=item.publishedAt)=item.publishedAt

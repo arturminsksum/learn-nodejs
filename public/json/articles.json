@@ -28,5 +28,17 @@
     "urlToImage":
       "https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2018/01/cryptocurrency-1.png",
     "publishedAt": "2018-01-29T11:49:06Z"
+  },
+  {
+    "source": { "id": "abc-news", "name": "ABC News" },
+    "author": "ABC News",
+    "title": "Rousey's WWE deal gets ex-UFC star back in bright spotlight",
+    "description":
+      "Ronda Rousey stayed silent as she pointed from the ring toward the WrestleMania logo that hung in the rafters. Without saying a word, the MMA great made clear she was signaling her wrestling debut at WWE's signature event. Rousey wants her WrestleMania moment…",
+    "url":
+      "http://abcnews.go.com/Entertainment/wireStory/rouseys-wwe-deal-ufc-star-back-bright-spotlight-52691202",
+    "urlToImage":
+      "http://a.abcnews.com/images/Entertainment/WireAP_18f9d8b3c72e4d94a0cc6332ee8924cd_16x9_992.jpg",
+    "publishedAt": "2018-01-29T22:01:09Z"
   }
 ]
