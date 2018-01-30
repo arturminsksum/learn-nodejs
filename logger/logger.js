@@ -9,8 +9,7 @@ const myFormat = printf(info => {
 const logger = createLogger({
   format: combine(timestamp(), myFormat),
   transports: [
-    new winston.transports.File({ filename: 'error.log', level: 'error' }),
-    new winston.transports.File({ filename: 'combined.log' }),
+    new winston.transports.File({ filename: './logger/logger.log' }),
   ],
 });
 
