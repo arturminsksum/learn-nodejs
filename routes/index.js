@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
+const Article = require('../mongoose/mongoose');
+
 const logger = require('../logger/logger');
 const fullUrl = require('../helpers/helpers');
 
@@ -10,7 +12,10 @@ router.use(function(req, res, next) {
 });
 
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Front Camp' });
+  Article.find({ 'source.id': 'the-verge' }, function(err, articles) {
+    console.log(articles);
+    res.render('index', { title: articles[0].author });
+  });
 });
 
 module.exports = router;
