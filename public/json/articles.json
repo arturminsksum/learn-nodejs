@@ -1,9 +1,7 @@
 [
   {
-    "source": {
-      "id": "the-verge",
-      "name": "The Verge"
-    },
+    "id": "the-verge",
+    "source": "The Verge",
     "author": "Thuy Ong",
     "title": "Facebook begins privacy push ahead of tough new European law",
     "description":
@@ -15,10 +13,8 @@
     "publishedAt": "2018-01-29T12:10:18Z"
   },
   {
-    "source": {
-      "id": "the-next-web",
-      "name": "The Next Web"
-    },
+    "id": "the-next-web",
+    "source": "The Next Web",
     "author": "Mix",
     "title": "We got a cryptocurrency mystery box – but you probably shouldn't",
     "description":
@@ -30,8 +26,9 @@
     "publishedAt": "2018-01-29T11:49:06Z"
   },
   {
-    "source": { "id": "abc-news", "name": "ABC News" },
-    "author": "ABC News",
+    "id": "abc-news",
+    "source": "ABC News",
+    "author": "ABC",
     "title": "Rousey's WWE deal gets ex-UFC star back in bright spotlight",
     "description":
       "Ronda Rousey stayed silent as she pointed from the ring toward the WrestleMania logo that hung in the rafters. Without saying a word, the MMA great made clear she was signaling her wrestling debut at WWE's signature event. Rousey wants her WrestleMania moment…",

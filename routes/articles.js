@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/:id', function(req, res, next) {
-  Article.find({ 'source.id': req.params.id }, function(err, articles) {
+  Article.find({ id: req.params.id }, function(err, articles) {
     if (!articles.length) {
       var err = new Error('Not Found');
       err.status = 404;
@@ -22,10 +22,8 @@ router.get('/:id', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
   const article = new Article({
-    source: {
-      id: 'abc-news',
-      name: 'ABC News',
-    },
+    id: 'abc-news',
+    source: 'ABC News',
     author: 'ABC News',
     title: 'WATCH: What to know about the water challenge',
     description:
@@ -36,7 +34,7 @@ router.post('/', function(req, res, next) {
     publishedAt: Date.now(),
   });
   article.save();
-  next();
+  next('/');
 });
 
 router.put('/:id', function(req, res, next) {

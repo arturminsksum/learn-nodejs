@@ -2,10 +2,8 @@ const mongoose = require('../index');
 const Schema = mongoose.Schema;
 
 const articlesSchema = new Schema({
-  source: {
-    id: String,
-    name: String,
-  },
+  id: String,
+  source: String,
   author: String,
   title: String,
   description: String,
