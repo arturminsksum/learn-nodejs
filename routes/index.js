@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const Article = require('../mongoose/mongoose');
+const Article = require('../mongoose/models/article');
 
 const logger = require('../logger/logger');
 const fullUrl = require('../helpers/helpers');

@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const Article = require('../mongoose/mongoose');
-const articles = require('../public/json/articles.json');
+const Article = require('../mongoose/models/article');
 
 router.get('/', function(req, res, next) {
   Article.find({}, function(err, articles) {
