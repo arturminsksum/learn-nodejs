@@ -22,15 +22,13 @@ router.get('/:id', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
   const article = new Article({
-    id: 'abc-news',
-    source: 'ABC News',
-    author: 'ABC News',
-    title: 'WATCH: What to know about the water challenge',
-    description:
-      'Dr. Jennifer Ashton kicks off a month-long "Water Challenge" to look at how drinking more water can affect your health.',
-    url: 'http://abcnews.go.com/GMA/video/water-challenge-52783678',
-    urlToImage:
-      'http://a.abcnews.com/images/GMA/180202_gma_ashton_16x9_992.jpg',
+    id: req.body.id,
+    source: req.body.source,
+    author: req.body.author,
+    title: req.body.title,
+    description: req.body.description,
+    url: req.body.url,
+    urlToImage: req.body.urlToImage,
     publishedAt: Date.now(),
   });
   article.save();
