@@ -13,7 +13,7 @@ router.use(function(req, res, next) {
 
 router.get('/', function(req, res, next) {
   Article.find({ id: 'the-verge' }, function(err, articles) {
-    console.log(articles);
+    // console.log(articles);
     res.render('index', { title: articles[0].author });
   });
 });
