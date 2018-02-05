@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
 router.get('/:id', function(req, res, next) {
   Article.find({ id: req.params.id }, function(err, articles) {
     if (!articles.length) {
-      var err = new Error('Not Found');
+      const err = new Error('Article Not Found');
       err.status = 404;
       next(err);
     }
@@ -31,12 +31,30 @@ router.post('/', function(req, res, next) {
     urlToImage: req.body.urlToImage,
     publishedAt: Date.now(),
   });
-  article.save();
-  next('/');
+  article.save(function(err, raw) {
+    if (err) {
+      return handleError(err);
+    }
+    res.send('Article was added');
+  });
 });
 
-router.put('/:id', function(req, res, next) {
-  res.send('Adds field in the article');
+router.post('/:id', function(req, res, next) {
+  if (req.body._method === 'put') {
+    Article.update(
+      { id: req.params.id },
+      { title: req.body.title, description: req.body.description },
+      function(err, raw) {
+        if (err) return handleError(err);
+        res.send('Added field in the article');
+      },
+    );
+  } else if (req.body._method === 'delete') {
+    Article.find({ id: req.params.id }).remove(function(err, raw) {
+      if (err) return handleError(err);
+      res.send('Removed the article');
+    });
+  }
 });
 
 router.delete('/:id', function(req, res, next) {

@@ -2,23 +2,23 @@ extends layout
 
 block content
 
-  .columns
-    for item in articles
-      .column.is-one-forth
-        .card
-          .card-image
-            figure.image.is-4by3
-              img(src=item.urlToImage)
-          .card-content
-            a.media(href=item.url)
-              p.title.is-4=item.title
-            .content=item.description
-              br
-              br
-              i
-                | Date:
-                |
-                time(datetime=item.publishedAt)=item.publishedAt
+  for item in articles
+    article.media.box
+      figure.media-left
+        p.image.is-64x64
+          img(src=item.urlToImage)
+      .media-content
+        .content
+          a.title(href=item.url)=item.title
+          p
+            span=item.description
+          p
+            strong Source: #{item.source}
+            br
+            small Author: #{item.author}
+            br
+            small Time: #{item.publishedAt}
+
   .columns
     .column.is-one-third
       form(method='post')
