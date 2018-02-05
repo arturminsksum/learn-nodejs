@@ -3,8 +3,9 @@ const router = express.Router();
 
 const Article = require('../mongoose/models/article');
 
-const logger = require('../logger/logger');
-const fullUrl = require('../helpers/helpers');
+const logger = require('../logger');
+const helpers = require('../helpers');
+const fullUrl = helpers.fullUrl;
 
 router.use(function(req, res, next) {
   logger.info(fullUrl(req));
@@ -12,10 +13,7 @@ router.use(function(req, res, next) {
 });
 
 router.get('/', function(req, res, next) {
-  Article.find({ id: 'the-verge' }, function(err, articles) {
-    // console.log(articles);
-    res.render('index', { title: articles[0].author });
-  });
+  res.render('index', { title: 'See articles' });
 });
 
 module.exports = router;

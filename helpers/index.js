@@ -8,4 +8,11 @@ const fullUrl = req => {
   });
 };
 
-module.exports = fullUrl;
+const handleError = (text, next) => {
+  const err = new Error(text);
+  err.status = 404;
+  next(err);
+};
+
+exports.fullUrl = fullUrl;
+exports.handleError = handleError;
