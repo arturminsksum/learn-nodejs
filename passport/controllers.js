@@ -1,5 +1,5 @@
 const User = require('../mongoose/models/user');
-
+const passport = require('../passport');
 // Здесь мы проверяем, передаем данные о пользователе в функцию верификации, котоую мы определили выше.
 // Вообще, passport.authenticate() вызывает метод req.logIn автоматически, здесь же я указал это явно. Это добавляет удобство в отладке. Например, можно вставить сюда console.log(), чтобы посмотреть, что происходит...
 // При удачной авторизации данные пользователя будут храниться в req.user
@@ -23,6 +23,7 @@ module.exports.logout = function(req, res) {
 
 // Регистрация пользователя. Создаем его в базе данных, и тут же, после сохранения, вызываем метод `req.logIn`, авторизуя пользователя
 module.exports.register = function(req, res, next) {
+  console.log(req.body);
   var user = new User({
     username: req.body.email,
     password: req.body.password,
