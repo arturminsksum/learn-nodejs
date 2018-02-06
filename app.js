@@ -1,13 +1,26 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
+
+const passport = require('./passport');
 
 const app = express();
 
-// parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
-
-// parse application/json
 app.use(bodyParser.json());
+app.use(cookieParser());
+app.use(
+  session({
+    secret: 'SECRET',
+    resave: true,
+    saveUninitialized: true,
+  }),
+);
+
+// Passport:
+app.use(passport.initialize());
+app.use(passport.session());
 
 const index = require('./routes/index');
 const articles = require('./routes/articles');

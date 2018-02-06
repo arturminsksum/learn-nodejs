@@ -6,6 +6,11 @@ const handleError = helpers.handleError;
 
 const Article = require('../mongoose/models/article');
 
+const ensureLoggedIn = require('../passport/auth');
+
+router.all('/', ensureLoggedIn);
+router.all('/*', ensureLoggedIn);
+
 router.get('/', function(req, res, next) {
   Article.find({}, function(err, articles) {
     res.render('articles', { articles });
